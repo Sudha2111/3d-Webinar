@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleIN - Turn Your LinkedIn From Invisible to Influential</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #090d16;
+            --secondary-bg: #111726;
+            --tertiary-bg: #141d30;
+            --border: #1f2b45;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-cyan: #0284c7;
+            --accent-dark-blue: #0a66c2;
+            --accent-green: #10b981;
+            --text-dark: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(9, 13, 22, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0a66c2 0%, #036aa1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(10, 102, 194, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.45px;
+        }
+
+        .logo-text .in { color: var(--accent-blue); }
+        .logo-text p {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .header-cta {
+            background: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-cyan) 50%, var(--accent-dark-blue) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 15px -3px rgba(10, 102, 194, 0.25);
+            transition: transform 0.2s;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 80px;
+            padding: 96px 192px 128px;
+            background: linear-gradient(90deg, #090d16 0%, #090d16 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-backdrop {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(10, 102, 194, 0.2) 0%, transparent 70%);
+            filter: blur(65px);
+            border-radius: 9999px;
+            pointer-events: none;
+        }
+
+        .hero-backdrop-2 {
+            position: absolute;
+            top: 160px;
+            right: 40px;
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            filter: blur(60px);
+            border-radius: 9999px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 896px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #141d30;
+            border: 1px solid var(--border);
+            padding: 7px 17px;
+            border-radius: 9999px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-pill::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 9999px;
+        }
+
+        .category-pill span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            color: white;
+        }
+
+        .gradient-text {
+            background: linear-gradient(125deg, #ffffff 30%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheading {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            max-width: 768px;
+        }
+
+        .supporting-text {
+            font-size: 16px;
+            color: rgba(56, 189, 248, 0.9);
+            font-weight: 500;
+            margin-bottom: 40px;
+            max-width: 672px;
+        }
+
+        .ctas {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 64px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0284c7 0%, #0284c7 50%, #0a66c2 100%);
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(10, 102, 194, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 25px 30px -5px rgba(10, 102, 194, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--tertiary-bg);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: #1a2847;
+        }
+
+        /* ===== PROOF CARD ===== */
+        .proof-card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 33px;
+            max-width: 768px;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .proof-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .proof-info {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 9999px;
+            background: linear-gradient(45deg, #0a66c2 0%, #036aa1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.5);
+            position: relative;
+        }
+
+        .avatar-status {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
+            background: #0a66c2;
+            border-radius: 9999px;
+            border: 2px solid var(--secondary-bg);
+        }
+
+        .proof-name h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .verified-badge span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        .proof-role {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .proof-stats {
+            text-align: right;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-top: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            background: var(--tertiary-bg);
+            border: 1px solid rgba(31, 43, 69, 0.6);
+            padding: 13px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-box-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .stat-box-number {
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+            line-height: 1;
+        }
+
+        .stat-box-number.accent-blue { color: var(--accent-blue); }
+        .stat-box-number.accent-green { color: var(--accent-green); }
+
+        /* ===== RESULTS SECTION ===== */
+        .results-section {
+            background: rgba(20, 29, 48, 0.5);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 97px 32px;
+        }
+
+        .results-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            flex: 1;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.9px;
+            line-height: 1.1;
+        }
+
+        .data-backed {
+            background: var(--secondary-bg);
+            border: 1px solid rgba(10, 102, 194, 0.3);
+            padding: 9px 17px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-backed span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* ===== CARDS GRID ===== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border);
+            padding: 29px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22.8px;
+            font-size: 20px;
+        }
+
+        .card-icon.blue {
+            background: rgba(10, 102, 194, 0.1);
+            border: 1px solid rgba(10, 102, 194, 0.2);
+        }
+
+        .card-icon.green {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .card-icon.cyan {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .card-icon.orange {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-footer.blue { color: var(--accent-blue); }
+        .card-footer.green { color: var(--accent-green); }
+        .card-footer.cyan { color: var(--accent-blue); }
+        .card-footer.orange { color: #f59e0b; }
+
+        .card.span-2 {
+            grid-column: span 2;
+        }
+
+        .card-footer-big {
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .closing-banner {
+            background: linear-gradient(90deg, var(--secondary-bg) 0%, #192238 50%, var(--secondary-bg) 100%);
+            border: 1px solid rgba(10, 102, 194, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 48px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .closing-banner h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* ===== AUDIT SECTION ===== */
+        .audit-section {
+            padding: 96px 160px;
+            background: rgba(20, 29, 48, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audit-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(10, 102, 194, 0.15) 0%, transparent 70%);
+            filter: blur(70px);
+            border-radius: 9999px;
+            pointer-events: none;
+        }
+
+        .audit-box {
+            background: var(--secondary-bg);
+            border: 2px solid rgba(10, 102, 194, 0.4);
+            border-radius: 24px;
+            padding: 50px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .audit-box::before {
+            content: 'EXCLUSIVE DIAGNOSTIC OFFER';
+            position: absolute;
+            top: -16px;
+            left: 48px;
+            background: linear-gradient(90deg, #0284c7 0%, #0a66c2 100%);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .audit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 0;
+            gap: 40px;
+        }
+
+        .audit-title h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.9px;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .audit-title h2 .strike {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+
+        .audit-title .rupee-one {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            text-decoration-color: var(--accent-green);
+            text-decoration-thickness: 4px;
+            text-underline-offset: 4px;
+        }
+
+        .audit-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .price-box {
+            background: var(--tertiary-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 16px;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+        }
+
+        .price-display {
+            position: relative;
+            height: 42px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-dark);
+            font-size: 18px;
+        }
+
+        .current-price {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--accent-green);
+        }
+
+        .price-note {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        .audit-benefits {
+            margin-bottom: 40px;
+        }
+
+        .benefits-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 24px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .benefit-item {
+            background: var(--tertiary-bg);
+            border: 1px solid var(--border);
+            padding: 17px;
+            border-radius: 12px;
+            display: flex;
+            gap: 14px;
+            min-height: 97px;
+        }
+
+        .benefit-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .benefit-icon.blue { background: rgba(10, 102, 194, 0.2); }
+        .benefit-icon.green { background: rgba(16, 185, 129, 0.2); }
+        .benefit-icon.cyan { background: rgba(56, 189, 248, 0.2); }
+        .benefit-icon.orange { background: rgba(245, 158, 11, 0.2); }
+
+        .benefit-content h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .benefit-content p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .audit-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 33px;
+            border-top: 1px solid var(--border);
+        }
+
+        .quote-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quote-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .btn-success {
+            background: linear-gradient(90deg, var(--accent-green) 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            background: var(--secondary-bg);
+            border-radius: 24px;
+            padding: 49px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header-label {
+            display: inline-block;
+            background: rgba(10, 102, 194, 0.1);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+        }
+
+        .form-header-label span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .form-header h3 {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.9px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        label .required {
+            color: var(--accent-blue);
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 17px 17px 49px;
+            background: var(--tertiary-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            position: relative;
+        }
+
+        input::placeholder {
+            color: var(--text-dark);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .form-field {
+            position: relative;
+        }
+
+        .form-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(90deg, #0284c7 0%, #0284c7 50%, #0a66c2 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 20px 25px -5px rgba(10, 102, 194, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7.99px;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 25px 30px -5px rgba(10, 102, 194, 0.4);
+        }
+
+        .form-submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+            text-align: center;
+            display: none;
+        }
+
+        .message.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            display: block;
+        }
+
+        .message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            display: block;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            padding: 96px 32px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 33px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .star { color: #fbbf24; font-size: 12px; }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding-top: 17px;
+            border-top: 1px solid var(--border);
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+        }
+
+        .avatar-blue { background: rgba(2, 132, 199, 0.3); color: var(--accent-blue); }
+        .avatar-cyan { background: rgba(56, 189, 248, 0.3); color: var(--accent-blue); }
+        .avatar-green { background: rgba(16, 185, 129, 0.3); color: var(--accent-green); }
+
+        .author-info h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .testimonials-closing {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 18px;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            background: rgba(20, 29, 48, 0.5);
+            border-top: 1px solid var(--border);
+            padding: 97px 192px;
+        }
+
+        .faq-container {
+            max-width: 896px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .faq-header h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.4;
+        }
+
+        .faq-toggle {
+            font-size: 12px;
+            color: var(--accent-blue);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #090d16;
+            border-top: 1px solid var(--border);
+            padding: 65px 32px 64px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 49px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.45px;
+            margin-bottom: 6px;
+        }
+
+        .footer-brand .in { color: var(--accent-blue); }
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 3.5px;
+        }
+
+        .footer-contact .email {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .footer-policies {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-policies a {
+            font-size: 12px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-policies a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero { padding: 80px 96px 100px; }
+            .audit-section { padding: 80px 32px; }
+            .faq-section { padding: 80px 32px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .card.span-2 { grid-column: auto; }
+            nav { gap: 16px; display: none; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .ctas { flex-wrap: wrap; }
+            .audit-header { flex-direction: column; }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 60px 20px 80px; }
+            h1 { font-size: 36px; }
+            .header-container { padding: 0 16px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .footer-top { flex-direction: column; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <div class="logo-badge">in</div>
+            <div class="logo-text">
+                <h1><span class="in">SCALE</span>IN</h1>
+                <p>Growth Engine</p>
+            </div>
+        </a>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#audit">₹1 Audit <span style="background: rgba(16, 185, 129, 0.2); padding: 3px 7px; border-radius: 9999px; font-size: 10px; color: var(--accent-green); font-weight: 700;">Hot</span></a>
+            <a href="#testimonials">Client Stories</a>
+            <a href="#faq">FAQs</a>
+        </nav>
+        <a href="#form" class="header-cta">Claim ₹1 Audit →</a>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="overview">
+    <div class="hero-backdrop"></div>
+    <div class="hero-backdrop-2"></div>
+    <div class="hero-content">
+        <div class="category-pill"><span>Executive LinkedIn Personal Branding</span></div>
+        <h1>Turn Your LinkedIn From <span class="gradient-text">Invisible to Influential</span></h1>
+        <p class="subheading">We don't just "optimize profiles." We build your personal brand from scratch — with strategy, content, and consistency that actually gets you seen.</p>
+        <p class="supporting-text">From 0 to hero on LinkedIn — without confusion, guesswork, or wasting months figuring it out alone.</p>
+        <div class="ctas">
+            <button class="btn btn-primary">Get Your Profile Audit →</button>
+            <button class="btn btn-secondary">Start Growing Today →</button>
+        </div>
+
+        <!-- PROOF CARD -->
+        <div class="proof-card">
+            <div class="proof-header">
+                <div class="proof-info">
+                    <div class="avatar">
+                        JD
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="proof-name">
+                        <h4>Client Executive Growth Feed</h4>
+                        <div class="verified-badge">
+                            <span>✓ Verified</span>
+                        </div>
+                        <p class="proof-role">Founder & Managing Partner • B2B SaaS</p>
+                    </div>
+                </div>
+                <div class="proof-stats">
+                    <div class="stat-label">PAST 30 DAYS</div>
+                    <div class="stat-value">↑ +340% Reach</div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-box-label">Organic Impressions</div>
+                    <div class="stat-box-number">48,219</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-label">Qualified Inbound DMs</div>
+                    <div class="stat-box-number accent-blue">89 Leads</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-label">Followers Gained</div>
+                    <div class="stat-box-number accent-green">+1,420</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTS SECTION -->
+<section class="results-section" id="achievements">
+    <div class="results-container">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="section-label">PROVEN TRACK RECORD</div>
+                <h2>Real Growth. Real Results.</h2>
+            </div>
+            <div class="data-backed">
+                <span>📊</span>
+                <span>Data-backed outcomes across every niche</span>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div>
+                    <div class="card-icon blue">🎯</div>
+                    <h3>100+ Authority Brands Built</h3>
+                    <p>Helped 100+ professionals build authority on LinkedIn, from early-stage founders to global executives.</p>
+                </div>
+                <div class="card-footer blue">✓ Zero ghosting • Proven systems</div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon green">📈</div>
+                    <h3>Consistent Inbound Engine</h3>
+                    <p>Generated consistent inbound leads through content that magnetically attracts ideal clients, partners, and recruiters.</p>
+                </div>
+                <div class="card-footer green">✓ High-ticket pipeline generation</div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon cyan">⚡</div>
+                    <h3>Built From Absolute Zero</h3>
+                    <p>Built personal brands from absolute zero — transforming silent profiles into daily recognized thought leaders.</p>
+                </div>
+                <div class="card-footer cyan">✓ No pre-existing clout needed</div>
+            </div>
+
+            <div class="card span-2">
+                <div>
+                    <div class="card-icon blue">🌐</div>
+                    <h3>Viral Organic Reach</h3>
+                    <p>Content that reaches thousands organically without burning a single rupee on paid advertisements or artificial engagement pods.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-footer-big">Average 45,000+</span>
+                    <span>monthly targeted impressions per client</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon orange">💰</div>
+                    <h3>High Conversion Ratio</h3>
+                    <p>Profiles that convert views into opportunities, turning casual scrollers into closed business deals and speaking gigs.</p>
+                </div>
+                <div class="card-footer orange">✓ Views → Relationships → Revenue</div>
+            </div>
+        </div>
+
+        <div class="closing-banner">
+            <h3>🔑 This isn't luck. It's a system that works.</h3>
+        </div>
+    </div>
+</section>
+
+<!-- AUDIT SECTION -->
+<section class="audit-section" id="audit">
+    <div class="audit-glow"></div>
+    <div class="audit-box">
+        <div class="audit-header">
+            <div class="audit-title">
+                <h2>Get a Complete LinkedIn Audit for <br> Just <span class="rupee-one">Rupee 1</span></h2>
+                <p class="audit-subtitle">Not a sales call. A real breakdown of what's working, what's not, and what to fix.</p>
+            </div>
+            <div class="price-box">
+                <div class="price-label">AUDIT FEE</div>
+                <div class="price-display">
+                    <span class="original-price">₹4,999</span>
+                    <span class="current-price">₹1</span>
+                </div>
+                <div class="price-note">One-time offer</div>
+            </div>
+        </div>
+
+        <div class="audit-benefits">
+            <div class="benefits-label">WHAT YOU'LL RECEIVE IN YOUR 1-ON-1 BREAKDOWN:</div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon blue">✓</div>
+                    <div class="benefit-content">
+                        <h5>Profile Review</h5>
+                        <p>Full audit of your headline, banner, and positioning to attract decision-makers.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon green">✓</div>
+                    <div class="benefit-content">
+                        <h5>Content Gap Analysis</h5>
+                        <p>Discover why past posts stalled and pinpoint topics your target buyers crave.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon cyan">✓</div>
+                    <div class="benefit-content">
+                        <h5>Personal Brand Direction</h5>
+                        <p>Establish your unique category wedge so your name is synonymous with authority.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon orange">✓</div>
+                    <div class="benefit-content">
+                        <h5>Clear Action Steps</h5>
+                        <p>Immediate, high-impact tactical adjustments to dramatically improve visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="audit-footer">
+            <div class="quote-line">
+                <span>💡</span>
+                <span class="quote-text">"Why Rupee 1? Because once you see the value, you'll know what to do next."</span>
+            </div>
+            <button class="btn btn-success" onclick="window.open('https://payments.cashfree.com/forms/getaudit', '_blank')">Book My Audit Now →</button>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-section" id="form">
+        <div class="form-header-label">
+            <span>FAST-TRACK ONBOARDING</span>
+        </div>
+        <div class="form-header">
+            <h3>Let's Build Your LinkedIn Presence Together</h3>
+            <p>Tell us a bit about you — and we'll show you exactly how to grow.</p>
+        </div>
+
+        <form id="auditForm">
+            <div class="form-group">
+                <label>Your Full Name <span class="required">*</span></label>
+                <div class="form-field">
+                    <span class="form-icon">👤</span>
+                    <input type="text" id="name" name="name" placeholder="e.g. Vikram Singhania" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Work Email <span class="required">*</span></label>
+                <div class="form-field">
+                    <span class="form-icon">✉️</span>
+                    <input type="email" id="email" name="email" placeholder="e.g. vikram@company.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number (WhatsApp Ready) <span class="required">*</span></label>
+                <div class="form-field">
+                    <span class="form-icon">📱</span>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                </div>
+            </div>
+
+            <button type="submit" class="form-submit-btn">Get My Growth Plan →</button>
+            <div class="form-trust">✓ No spam. No fluff. Just actionable clarity.</div>
+            <div id="formMessage" class="message"></div>
+        </form>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section" id="testimonials">
+    <div class="testimonials-header">
+        <div class="section-label">REAL ENDORSEMENTS</div>
+        <h2 class="section-title" style="font-size: 36px; font-weight: 900; color: white; margin-bottom: 12px;">What Our Clients Say</h2>
+        <p style="font-size: 16px; color: var(--text-secondary);">Verified feedback from executives and creators who scaled their LinkedIn reach.</p>
+    </div>
+
+    <div class="testimonials-grid">
+        <div class="testimonial">
+            <div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I had zero presence before this. Within weeks, I started getting inbound messages and profile views."</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="author-avatar avatar-blue">AS</div>
+                <div class="author-info">
+                    <h5>Ananya Sharma</h5>
+                    <p>Founder & CEO, HealthTech</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The clarity I got here saved me months of trial and error."</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="author-avatar avatar-cyan">RK</div>
+                <div class="author-info">
+                    <h5>Rohan Kapoor</h5>
+                    <p>Principal Consultant, FinStrategy</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"It's not just content — it's a full strategy. That's what made the difference."</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="author-avatar avatar-green">MD</div>
+                <div class="author-info">
+                    <h5>Meera Desai</h5>
+                    <p>VP Marketing, ScaleUp Ventures</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I finally understand how LinkedIn actually works."</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="author-avatar avatar-blue">SP</div>
+                <div class="author-info">
+                    <h5>Sameer Patel</h5>
+                    <p>Independent Angel Investor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-closing">✨ Results speak louder than promises.</div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+    <div class="faq-container">
+        <div class="faq-header">
+            <div class="section-label">GOT QUESTIONS?</div>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about getting from 0 to visible on LinkedIn.</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Who is this service for?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Do you create content for me?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How long does it take to see results?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Is this only for job seekers?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What makes this different?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Do I need prior experience on LinkedIn?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div style="width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, #0a66c2 0%, #036aa1 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px;">in</div>
+                    <div>
+                        <h3><span class="in">SCALE</span>IN</h3>
+                        <p>Building personal brands that stand out — not blend in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="#overview">Home</a>
+                <a href="#achievements">Services</a>
+                <a href="#audit">Book Audit</a>
+                <a href="#form">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Have questions? Reach out anytime.</p>
+                <p class="email">hello@scalein.co</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">2026 All Rights Reserved. Built for those who are ready to be seen.</p>
+            <div class="footer-policies">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXwguK9P0sjp2AOQXzpmoVsl8a8iBPJhfFQzWYIM5GcfwUaJdzHXZqRwpQ87Ntr9NN/exec';
+const PAYMENT_URL = 'https://payments.cashfree.com/forms/getaudit';
+
+document.getElementById('auditForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const messageEl = document.getElementById('formMessage');
+    
+    if (!name || !email || !phone) {
+        messageEl.textContent = 'Please fill in all fields.';
+        messageEl.className = 'message error';
+        return;
+    }
+    
+    const btn = document.querySelector('.form-submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    
+    // Build the URL with query parameters
+    const url = APPSCRIPT_URL + '?' + new URLSearchParams({ name, email, phone });
+    
+    // Fetch with GET and no-cors
+    fetch(url, { method: 'GET', mode: 'no-cors' })
+        .then(() => {
+            // Success: redirect to payment URL
+            messageEl.textContent = '✓ Thank you! Redirecting to payment...';
+            messageEl.className = 'message success';
+            setTimeout(() => {
+                window.location.href = PAYMENT_URL;
+            }, 1500);
+        })
+        .catch(() => {
+            // Error: still redirect to payment (since no-cors doesn't allow error checking)
+            messageEl.textContent = '✓ Form submitted! Redirecting to payment...';
+            messageEl.className = 'message success';
+            setTimeout(() => {
+                window.location.href = PAYMENT_URL;
+            }, 1500);
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.textContent = 'Get My Growth Plan →';
+        });
+});
+
+// FAQ Toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
